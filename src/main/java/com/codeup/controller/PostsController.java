@@ -1,6 +1,7 @@
 package com.codeup.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,8 +16,9 @@ public class PostsController {
         return "posts";
     }
 
-//    @GetMapping("/posts/{id}")
-//    public String ViewAPosts(@PathVariable int id) {
-//        return "posts/id";
-//    }
+    @GetMapping("/posts/{id}")
+    public String ViewAPosts(@PathVariable int id, Model model) {
+        model.addAttribute("id", id);
+        return "posts";
+    }
 }

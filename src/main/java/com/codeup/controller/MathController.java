@@ -28,7 +28,7 @@ public class MathController {
         return num1 * num2;
     }
 
-    @GetMapping("/divide/{num1}/and/{num2}")
+    @GetMapping("/divide/{num1}/by/{num2}")
     @ResponseBody
     public int divide(@PathVariable int num1, @PathVariable int num2) {
         return num1 / num2;

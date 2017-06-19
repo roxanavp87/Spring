@@ -8,13 +8,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by roxana on 6/19/17.
  */
 @Controller
 public class PostsController {
     @GetMapping("/posts")
-    public String all() {
+    public String all(Model model) {
+        List<Post> posts = new ArrayList<>();
+        posts.add(new Post("first post", "some content"));
+        posts.add(new Post("second post", "some content"));
+        model.addAttribute("posts", posts);
         return "posts/index";
     }
 

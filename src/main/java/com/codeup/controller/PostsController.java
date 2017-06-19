@@ -1,5 +1,6 @@
 package com.codeup.controller;
 
+import com.codeup.models.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,14 +14,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class PostsController {
     @GetMapping("/posts")
-    public String Posts() {
-        return "posts";
+    public String all() {
+        return "posts/index";
     }
 
     @GetMapping("/posts/{id}")
-    public String ViewAPosts(@PathVariable int id, Model model) {
-        model.addAttribute("id", id);
-        return "posts";
+    public String viewAPosts(@PathVariable long id, Model model) {
+        Post post = new Post("first post", "some content");
+        model.addAttribute("post", post);
+        return "posts/show";
     }
 
     @GetMapping("/posts/create")

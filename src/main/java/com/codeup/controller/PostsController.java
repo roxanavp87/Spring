@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Controller
 public class PostsController {
-    private PostSvc postSvc;
+    private final PostSvc postSvc;
 
     @Autowired
     public PostsController(PostSvc postSvc) {
@@ -24,9 +24,7 @@ public class PostsController {
 
     @GetMapping("/posts")
     public String all(Model model) {
-        List<Post> posts = new ArrayList<>();
-        posts.add(new Post("first post", "some content"));
-        posts.add(new Post("second post", "some content"));
+        List<Post> posts = postSvc.all();
         model.addAttribute("posts", posts);
         return "posts/index";
     }
@@ -45,7 +43,8 @@ public class PostsController {
 
     @PostMapping("/posts/create")
     public String savePost(@RequestParam("title") String title, @RequestParam("body") String body, Model model) {
-        Post post = new Post(title, body);
+        postSvc.createPost(title, body);
+        Post post = postSvc.findByTitle(title);
         model.addAttribute("post", post);
         return  "posts/show";
     }

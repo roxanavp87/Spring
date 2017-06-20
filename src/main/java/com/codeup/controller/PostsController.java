@@ -29,9 +29,9 @@ public class PostsController {
         return "posts/index";
     }
 
-    @GetMapping("/posts/{id}")
-    public String viewAPosts(@PathVariable long id, Model model) {
-        Post post = new Post("first post", "some content");
+    @GetMapping("/posts/show")
+    public String viewAPosts(@RequestParam("post_id") long post_id, Model model) {
+        Post post = postSvc.findById(post_id);
         model.addAttribute("post", post);
         return "posts/show";
     }

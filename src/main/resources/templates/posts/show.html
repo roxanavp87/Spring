@@ -4,7 +4,7 @@
 <body>
     <nav th:replace="fragments::my-navbar"></nav>
     <div class="container">
-        <h1>Here is your post!</h1>
+        <h2 style="text-align: center">Here is your post!</h2>
         <p><span th:text="${post.getTitle()}" /></p>
         <p><span th:text="${post.getBody()}" /></p>
     </div>

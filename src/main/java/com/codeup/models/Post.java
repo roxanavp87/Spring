@@ -22,7 +22,7 @@ public class Post {
         return body;
     }
 
-    public static long getId() {
+    public long getId() {
         return id;
     }
 

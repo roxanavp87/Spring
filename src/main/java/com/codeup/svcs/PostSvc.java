@@ -33,4 +33,8 @@ public class PostSvc {
         }
         return null;
     }
+
+    public Post findById(long id) {
+        return posts.get((int)id -1);
+    }
 }

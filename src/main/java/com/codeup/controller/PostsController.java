@@ -44,8 +44,6 @@ public class PostsController {
     @PostMapping("/posts/create")
     public String savePost(@RequestParam("title") String title, @RequestParam("body") String body, Model model) {
         postSvc.createPost(title, body);
-        Post post = postSvc.findByTitle(title);
-        model.addAttribute("post", post);
-        return  "posts/show";
+        return "redirect:/posts";
     }
 }

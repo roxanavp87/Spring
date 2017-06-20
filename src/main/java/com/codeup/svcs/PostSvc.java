@@ -16,11 +16,16 @@ public class PostSvc {
         return posts;
     }
 
-    public void createPost(Post post) {
-        posts.add(post);
+    public void createPost(String title, String body) {
+        posts.add(new Post(title, body));
     }
 
-    public Post findOne(String title) {
-
+    public Post findByTitle(String title) {
+        for (Post post: posts) {
+            if(post.getTitle().equalsIgnoreCase(title)) {
+                return post;
+            }
+        }
+        return null;
     }
 }

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-</head>
+<head th:replace="fragments::head('View Post')"></head>
 <body>
-    <h1>Here is your post!</h1>
-    <p><span th:text="${post.getTitle()}" /></p>
+    <nav th:replace="fragments::my-navbar"></nav>
+    <div class="container">
+        <h2 style="text-align: center">Here is your post!</h2>
+        <p><span th:text="${post.getTitle()}" /></p>
+        <p><span th:text="${post.getBody()}" /></p>
+    </div>
+    <div th:replace="fragments::scripts"></div>
 </body>
 </html>

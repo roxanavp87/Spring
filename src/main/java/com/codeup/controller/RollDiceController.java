@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by roxana on 6/19/17.
  */
 @Controller
-public class RollDice {
+public class RollDiceController {
     @GetMapping("/rolldice")
     public String RollDiceC() {
         return "rolldice";

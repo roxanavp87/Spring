@@ -4,6 +4,7 @@ package com.codeup.models;
  * Created by roxana on 6/19/17.
  */
 public class Post {
+    private long id;
     private String title;
     private String body;
 
@@ -12,12 +13,22 @@ public class Post {
         this.body = body;
     }
 
+    public Post() { }
+
     public String getTitle() {
         return title;
     }
 
     public String getBody() {
         return body;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {

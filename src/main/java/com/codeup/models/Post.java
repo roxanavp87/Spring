@@ -14,6 +14,11 @@ public class Post {
         this.body = body;
     }
 
+    public Post() {
+        this.title = "";
+        this.body = "";
+    }
+
     public String getTitle() {
         return title;
     }

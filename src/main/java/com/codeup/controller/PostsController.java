@@ -36,14 +36,26 @@ public class PostsController {
         return "posts/show";
     }
 
+//    @GetMapping("/posts/create")
+//    public String ShowPostForm() {
+//        return "posts/create";
+//    }
+
+//    @PostMapping("/posts/create")
+//    public String savePost(@RequestParam("title") String title, @RequestParam("body") String body, Model model) {
+//        postSvc.createPost(title, body);
+//        return "redirect:/posts";
+//    }
+
     @GetMapping("/posts/create")
-    public String ShowPostForm() {
+    public String ShowPostForm(Model model) {
+        model.addAttribute("post", new Post());
         return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    public String savePost(@RequestParam("title") String title, @RequestParam("body") String body, Model model) {
-        postSvc.createPost(title, body);
+    public String savePost(@ModelAttribute Post post) {
+        postSvc.createPost(post.getTitle(), post.getBody());
         return "redirect:/posts";
     }
 }

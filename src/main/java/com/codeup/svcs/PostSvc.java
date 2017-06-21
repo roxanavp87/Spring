@@ -21,8 +21,9 @@ public class PostSvc {
         return posts;
     }
 
-    public void createPost(String title, String body) {
-        posts.add(new Post(title, body));
+    public void createPost(Post post) {
+        post.setId(posts.size());
+        posts.add(post);
     }
 
     public Post findByTitle(String title) {
@@ -35,6 +36,6 @@ public class PostSvc {
     }
 
     public Post findById(long id) {
-        return posts.get((int)id -1);
+        return posts.get((int)id);
     }
 }

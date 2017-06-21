@@ -4,20 +4,16 @@ package com.codeup.models;
  * Created by roxana on 6/19/17.
  */
 public class Post {
-    private static long id = 0;
+    private long id;
     private String title;
     private String body;
 
     public Post(String title, String body) {
-        id ++;
         this.title = title;
         this.body = body;
     }
 
-    public Post() {
-        this.title = "";
-        this.body = "";
-    }
+    public Post() { }
 
     public String getTitle() {
         return title;
@@ -29,6 +25,10 @@ public class Post {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {

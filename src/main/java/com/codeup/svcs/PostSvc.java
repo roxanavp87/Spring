@@ -16,7 +16,7 @@ public class PostSvc {
     private PostsRepository postsRepository;
 
     public PostSvc() {
-        this.posts = new ArrayList<>();
+        this.posts = (List<Post>) postsRepository.findAll();
     }
 
     public List<Post> all() {

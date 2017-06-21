@@ -1,6 +1,7 @@
 package com.codeup.svcs;
 
 import com.codeup.models.Post;
+import com.codeup.repositories.PostsRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 @Service("postSvc")
 public class PostSvc {
     private List<Post> posts;
+    private PostsRepository postsRepository;
 
     public PostSvc() {
         this.posts = new ArrayList<>();

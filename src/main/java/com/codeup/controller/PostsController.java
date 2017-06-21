@@ -2,6 +2,7 @@ package com.codeup.controller;
 
 import com.codeup.models.Post;
 import com.codeup.svcs.PostSvc;
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +36,21 @@ public class PostsController {
         model.addAttribute("post", post);
         return "posts/show";
     }
+
+    @GetMapping("/posts/edit")
+    public String editPost(@RequestParam("post_id") long post_id, Model model) {
+        Post post = postSvc.findById(post_id);
+        model.addAttribute("post", post);
+        return "redirect:/posts/create";
+    }
+
+    @PostMapping("/posts/edit")
+    public String updatePost(@ModelAttribute Post post) {
+        postSvc.update(post);
+        return "redirect:/posts";
+    }
+
+
 
 //    version 1
 //    @GetMapping("/posts/create")

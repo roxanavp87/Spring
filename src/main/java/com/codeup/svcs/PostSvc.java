@@ -38,4 +38,8 @@ public class PostSvc {
     public Post findById(long id) {
         return posts.get((int)id);
     }
+
+    public void update(Post post) {
+        posts.set((int)post.getId(), post);
+    }
 }

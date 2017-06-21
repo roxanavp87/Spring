@@ -13,6 +13,7 @@
                     <div class="caption">
                         <h4 th:text="${post.getTitle()}" style="text-align:center" />
                         <p><a th:href="@{/posts/show(post_id=${post.getId()})}" class="btn btn-primary btn-block" role="button">Go</a></p>
+                        <p><a th:href="@{/posts/edit(post_id=${post.getId()})}" class="btn btn-primary btn-block" role="button">Edit</a></p>
                     </div>
                 </div>
             </div>

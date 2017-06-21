@@ -41,7 +41,7 @@ public class PostsController {
     public String editPost(@RequestParam("post_id") long post_id, Model model) {
         Post post = postSvc.findById(post_id);
         model.addAttribute("post", post);
-        return "redirect:/posts/create";
+        return "posts/edit";
     }
 
     @PostMapping("/posts/edit")

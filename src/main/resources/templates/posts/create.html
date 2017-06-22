@@ -5,22 +5,6 @@
     <nav th:replace="fragments :: my-navbar"></nav>
     <div class="container">
         <h2 style="margin-bottom: 20px; text-align: center">Create a Post!</h2>
-        <!--<form method="post" action="/posts/create">-->
-            <!--<div class="form-group">-->
-                <!--<label for="title">Title</label>-->
-                <!--<input type="text" class="form-control" name="title" id="title" />-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<label for="body">Body</label>-->
-                <!--<textarea type="text" class="form-control" name="body" id="body" />-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<label for="input-img">Img input</label>-->
-                <!--<input type="file" id="input-img" />-->
-            <!--</div>-->
-            <!--<button type="submit" class="btn btn-default">Submit</button>-->
-        <!--</form>-->
-
         <form method="post" action="/posts/create" th:object="${post}">
             <div class="form-group">
                 <label for="title">Title</label>
@@ -30,6 +14,7 @@
                 <label for="body">Body</label>
                 <textarea type="text" class="form-control" id="body" th:field="*{body}" value="${post.getBody()}" />
             </div>
+            <!--<input type="hidden" value="1" th:field="*{owner.id}" />-->
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
     </div>

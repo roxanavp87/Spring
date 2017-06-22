@@ -1,6 +1,7 @@
 package com.codeup.controller;
 
 import com.codeup.models.Post;
+import com.codeup.models.User;
 import com.codeup.svcs.PostSvc;
 import com.codeup.svcs.UserSvc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,8 @@ public class PostsController {
 
     @PostMapping("/posts/create")
     public String savePost(@ModelAttribute Post post) {
+         User user = userSvc.findOne(1);
+         post.setOwner(user);
         postSvc.save(post);
         return "redirect:/posts";
     }

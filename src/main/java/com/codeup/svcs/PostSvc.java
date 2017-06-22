@@ -2,6 +2,7 @@ package com.codeup.svcs;
 
 import com.codeup.models.Post;
 import com.codeup.repositories.PostsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,12 +16,18 @@ public class PostSvc {
     private List<Post> posts;
     private PostsRepository postsRepository;
 
+    @Autowired
+    public PostSvc(PostsRepository postsRepository) {
+        this.postsRepository = postsRepository;
+//        this.posts = (List<Post>) postsRepository.findAll();
+    }
+
     public PostSvc() {
-        this.posts = (List<Post>) postsRepository.findAll();
+        this.posts = new ArrayList<>();
     }
 
     public List<Post> all() {
-        return posts;
+        return (List<Post>) postsRepository.findAll();
     }
 
     public void createPost(Post post) {

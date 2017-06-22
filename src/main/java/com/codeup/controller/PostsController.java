@@ -2,10 +2,13 @@ package com.codeup.controller;
 
 import com.codeup.models.Post;
 import com.codeup.svcs.PostSvc;
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -60,7 +63,7 @@ public class PostsController {
 //        return "redirect:/posts";
 //    }
 
-//    version 2
+    //    version 2
     @GetMapping("/posts/create")
     public String ShowPostForm(Model model) {
         model.addAttribute("post", new Post());

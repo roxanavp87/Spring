@@ -31,8 +31,7 @@ public class PostSvc {
     }
 
     public void createPost(Post post) {
-        post.setId(posts.size());
-        posts.add(post);
+        postsRepository.save(post);
     }
 
     public Post findByTitle(String title) {
@@ -45,7 +44,7 @@ public class PostSvc {
     }
 
     public Post findById(long id) {
-        return posts.get((int)id);
+        return postsRepository.findOne(id);
     }
 
     public void update(Post post) {

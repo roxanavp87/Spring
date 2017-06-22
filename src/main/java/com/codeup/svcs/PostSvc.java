@@ -24,7 +24,7 @@ public class PostSvc {
         return (List<Post>) postsRepository.findAll();
     }
 
-    public void createPost(Post post) {
+    public void save(Post post) {
         postsRepository.save(post);
     }
 
@@ -37,10 +37,10 @@ public class PostSvc {
     }
 
     public void update(Post post) {
-        //To Do: update post
-        String title = post.getTitle();
-        long id = post.getId();
-//        Post fpost = postsRepository.findOne(post.getId());
         postsRepository.save(post);
+    }
+
+    public void delete(Post post) {
+        postsRepository.delete(post);
     }
 }

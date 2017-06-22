@@ -59,7 +59,14 @@ public class PostsController {
 
     @PostMapping("/posts/create")
     public String savePost(@ModelAttribute Post post) {
-        postSvc.createPost(post);
+        postSvc.save(post);
+        return "redirect:/posts";
+    }
+
+    @GetMapping("/posts/delete")
+    public String deletePost(@RequestParam("post_id") long post_id) {
+        Post post = postSvc.findById(post_id);
+        postSvc.delete(post);
         return "redirect:/posts";
     }
 }

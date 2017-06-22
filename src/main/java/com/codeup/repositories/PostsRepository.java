@@ -7,4 +7,5 @@ import org.springframework.data.repository.CrudRepository;
  * Created by roxana on 6/21/17.
  */
 public interface PostsRepository extends CrudRepository<Post, Long> {
+    public Post findByTitle(String title);
 }

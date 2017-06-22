@@ -13,17 +13,11 @@ import java.util.List;
  */
 @Service("postSvc")
 public class PostSvc {
-    private List<Post> posts;
     private PostsRepository postsRepository;
 
     @Autowired
     public PostSvc(PostsRepository postsRepository) {
         this.postsRepository = postsRepository;
-//        this.posts = (List<Post>) postsRepository.findAll();
-    }
-
-    public PostSvc() {
-        this.posts = new ArrayList<>();
     }
 
     public List<Post> all() {
@@ -35,12 +29,7 @@ public class PostSvc {
     }
 
     public Post findByTitle(String title) {
-        for (Post post: posts) {
-            if(post.getTitle().equalsIgnoreCase(title)) {
-                return post;
-            }
-        }
-        return null;
+        return postsRepository.findByTitle(title);
     }
 
     public Post findById(long id) {
@@ -48,6 +37,10 @@ public class PostSvc {
     }
 
     public void update(Post post) {
-        posts.set((int)post.getId(), post);
+        //To Do: update post
+        String title = post.getTitle();
+        long id = post.getId();
+//        Post fpost = postsRepository.findOne(post.getId());
+        postsRepository.save(post);
     }
 }

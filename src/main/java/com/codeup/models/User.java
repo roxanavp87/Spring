@@ -28,6 +28,15 @@ public class User {
         this.password = password;
     }
 
+
+
+    public User(User user) {
+        this.id = user.getId();
+        this.username = user.getUsername();
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+    }
+
     public User() {
     }
 

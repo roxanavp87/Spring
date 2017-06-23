@@ -5,8 +5,12 @@
     <nav th:replace="fragments::my-navbar"></nav>
     <div class="container">
         <h2 style="text-align: center">Here is your post!</h2>
-        <p><span th:text="${post.getTitle()}" /></p>
-        <p><span th:text="${post.getBody()}" /></p>
+        <p><span th:text="${post.title}" /></p>
+        <p><span th:text="${post.body}" /></p>
+        <p><span th:text="${post.owner.email}" /></p>
+        <div th:each="image : ${post.images}">
+            <img class="img-responsive" width="100px" th:src="${image.url}"  />
+        </div>
     </div>
     <div th:replace="fragments::scripts"></div>
 </body>

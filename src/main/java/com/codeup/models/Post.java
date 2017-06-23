@@ -1,12 +1,15 @@
 package com.codeup.models;
+import org.hibernate.engine.internal.Cascade;
+
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by roxana on 6/19/17.
  */
 
 @Entity
-@Table(name="post")
+@Table(name="posts")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +20,12 @@ public class Post {
 
     @Column()
     private String body;
+
+    @OneToOne
+    private User owner;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    private List<PostImg> images;
 
     public Post(String title, String body) {
         this.title = title;
@@ -47,5 +56,21 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public List<PostImg> getImages() {
+        return images;
+    }
+
+    public void setImages(List<PostImg> images) {
+        this.images = images;
     }
 }

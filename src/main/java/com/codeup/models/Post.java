@@ -65,4 +65,12 @@ public class Post {
     public void setOwner(User owner) {
         this.owner = owner;
     }
+
+    public List<PostImg> getImages() {
+        return images;
+    }
+
+    public void setImages(List<PostImg> images) {
+        this.images = images;
+    }
 }

@@ -1,7 +1,9 @@
 package com.codeup.controller;
 
 import com.codeup.models.Post;
+import com.codeup.models.PostImg;
 import com.codeup.models.User;
+import com.codeup.svcs.PostImgSvc;
 import com.codeup.svcs.PostSvc;
 import com.codeup.svcs.UserSvc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,13 @@ import java.util.List;
 public class PostsController {
     private final PostSvc postSvc;
     private final UserSvc userSvc;
+    private final PostImgSvc postImgSvc;
 
     @Autowired
-    public PostsController(PostSvc postSvc, UserSvc userSvc) {
+    public PostsController(PostSvc postSvc, UserSvc userSvc, PostImgSvc postImgSvc) {
         this.postSvc = postSvc;
         this.userSvc = userSvc;
+        this.postImgSvc = postImgSvc;
     }
 
     @GetMapping("/posts")
@@ -36,6 +40,12 @@ public class PostsController {
     public String viewAPosts(@RequestParam("post_id") long post_id, Model model) {
         Post post = postSvc.findById(post_id);
         model.addAttribute("post", post);
+
+        //Testing
+//        for(int i=0; i<2;i++) {
+//            String url = post.getImages().get(0).getUrl();
+//        }
+
         return "posts/show";
     }
 

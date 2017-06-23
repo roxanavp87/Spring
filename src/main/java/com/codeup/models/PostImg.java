@@ -12,7 +12,7 @@ public class PostImg {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String url;
 
     @ManyToOne

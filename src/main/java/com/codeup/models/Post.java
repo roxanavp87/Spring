@@ -1,5 +1,8 @@
 package com.codeup.models;
+import org.hibernate.engine.internal.Cascade;
+
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by roxana on 6/19/17.
@@ -20,6 +23,9 @@ public class Post {
 
     @OneToOne
     private User owner;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    private List<PostImg> images;
 
     public Post(String title, String body) {
         this.title = title;

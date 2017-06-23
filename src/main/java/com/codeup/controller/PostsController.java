@@ -7,6 +7,7 @@ import com.codeup.svcs.PostImgSvc;
 import com.codeup.svcs.PostSvc;
 import com.codeup.svcs.UserSvc;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -71,16 +72,16 @@ public class PostsController {
 
     @PostMapping("/posts/create")
     public String savePost(@ModelAttribute Post post) {
-         User user = userSvc.findOne(1);
+         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
          post.setOwner(user);
-        postSvc.save(post);
-        return "redirect:/posts";
+         postSvc.save(post);
+         return "redirect:/posts";
     }
 
     @GetMapping("/posts/delete")
     public String deletePost(@RequestParam("post_id") long post_id) {
-        Post post = postSvc.findById(post_id);
-        postSvc.delete(post);
-        return "redirect:/posts";
+         Post post = postSvc.findById(post_id);
+         postSvc.delete(post);
+         return "redirect:/posts";
     }
 }

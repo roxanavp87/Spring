@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class AuthenticationController {
-    @GetMapping("/users/login")
+    @GetMapping("/login")
     public String showLoginForm() {
         return "users/login";
     }
 
-
+    @GetMapping("/register")
+    public String showRegisterForm(Model model) {
+        model.addAttribute("user", new User());
+        return "users/register";
+    }
 
 }

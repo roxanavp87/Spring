@@ -4,7 +4,7 @@
 <body>
     <nav th:replace="fragments::my-navbar"></nav>
     <div class="container">
-        <form method="post" action="@{/users/register}" th:object="${user}">
+        <form th:method="post" th:action="@{/users/register}" th:object="${user}">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" th:field="*{username}" />

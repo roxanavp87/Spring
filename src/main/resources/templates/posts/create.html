@@ -5,7 +5,7 @@
     <nav th:replace="fragments :: my-navbar"></nav>
     <div class="container">
         <h2 style="margin-bottom: 20px; text-align: center">Create a Post!</h2>
-        <form th:include="fragments::post-form" method="post" action="/posts/create" th:object="${post}"></form>
+        <form th:include="fragments :: post-form" th:method="post" th:action="@{/posts/create}" th:object="${post}"></form>
     </div>
 
     <div th:replace="fragments::scripts"></div>

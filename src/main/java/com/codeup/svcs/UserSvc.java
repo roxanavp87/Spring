@@ -30,4 +30,8 @@ public class UserSvc {
     public User findOne(long id) {
        return usersRepository.findOne(id);
     }
+
+    public User findByUsername(String username) {
+        return usersRepository.findByUsername(username);
+    }
 }

@@ -53,6 +53,7 @@ public class PostsController {
     @GetMapping("/posts/edit")
     public String editPost(@RequestParam("post_id") long post_id, Model model) {
         Post post = postSvc.findById(post_id);
+        String email = post.getOwner().getEmail();
         model.addAttribute("post", post);
         model.addAttribute("post_id", post_id);
         return "posts/edit";
@@ -60,6 +61,7 @@ public class PostsController {
 
     @PostMapping("/posts/edit")
     public String updatePost(@ModelAttribute Post post) {
+        String email = post.getOwner().getEmail();
         postSvc.update(post);
         return "redirect:/posts";
     }

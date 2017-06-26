@@ -48,7 +48,7 @@
                     <div class="caption">
                         <h4 th:text="${post.getTitle()}" style="text-align:center" />
                         <p><a th:href="@{/posts/show(post_id=${post.getId()})}" class="btn btn-primary btn-block" role="button">Go</a></p>
-                        <p><a th:href="@{/posts/edit(post_id=${post.getId()})}" class="btn btn-primary btn-block" role="button">Edit</a></p>
+                        <p><a th:href="@{/posts/edit(post_id=${post.getId()})}" class="btn btn-primary btn-block" id="edit-post" role="button">Edit</a></p>
                         <p><a th:href="@{/posts/delete(post_id=${post.getId()})}" class="btn btn-primary btn-block" role="button">Delete</a></p>
                     </div>
                 </div>

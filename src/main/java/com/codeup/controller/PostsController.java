@@ -1,7 +1,6 @@
 package com.codeup.controller;
 
 import com.codeup.models.Post;
-import com.codeup.models.PostImg;
 import com.codeup.models.User;
 import com.codeup.svcs.PostImgSvc;
 import com.codeup.svcs.PostSvc;
@@ -93,4 +92,9 @@ public class PostsController {
          postSvc.delete(post);
          return "redirect:/posts";
     }
+
+//    @GetMapping("/posts.json")
+//    public @ResponseBody List<Post> viewAllPostsInJSONFormat() {
+//        return postSvc.all();
+//    }
 }

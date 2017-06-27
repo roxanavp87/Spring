@@ -1,6 +1,10 @@
 package com.codeup.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by roxana on 6/22/17.
@@ -20,7 +24,12 @@ public class User {
     private String email;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
+
+    @OneToMany(mappedBy = "owner")
+    @JsonBackReference
+    private List<Post> posts;
 
     public User(String username, String email, String password) {
         this.username = username;

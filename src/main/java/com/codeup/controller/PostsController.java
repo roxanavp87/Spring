@@ -93,8 +93,8 @@ public class PostsController {
          return "redirect:/posts";
     }
 
-//    @GetMapping("/posts.json")
-//    public @ResponseBody List<Post> viewAllPostsInJSONFormat() {
-//        return postSvc.all();
-//    }
+    @GetMapping("/posts.json")
+    public @ResponseBody List<Post> viewAllPostsInJSONFormat() {
+        return postSvc.all();
+    }
 }
